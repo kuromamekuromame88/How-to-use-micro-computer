@@ -11,7 +11,7 @@ let cameraX, cameraY;
 
 const MainContainer = document.getElementsByClassName("MainContainer")[0];
 
-MainContainer.addEventListener("keydown", (e){
+MainContainer.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
