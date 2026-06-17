@@ -31,7 +31,7 @@ function create_topic(x, y, w, h, ht){
 };
 
 function init_container(topics){
-  if(typeof topics == "object") console.log(typeof topics);
+  if(typeof topics != "object") return;
 
   topics.forEach((e,i)=>{
     create_topic(e[0], e[1], e[2], e[3], e[4]);
@@ -51,7 +51,7 @@ function title_patch(){
   title.addEventListener("click", ()=>{
     const title = document.getElementsByClassName("title_start")[0];
     feed_out(title);
-    init_container(0,0,100,100,"a");
+    init_container([[0,0,100,100,"a"]]);
   });
 }
 
