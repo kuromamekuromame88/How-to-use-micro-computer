@@ -32,9 +32,15 @@ world.addEventListener("pointerdown", (e)=>{
   moving = true;
   startX = e.clientX;
   startY = e.clientY;
+  MainContainer.setPointerCapture(
+    e.pointerId
+  );
 });
 world.addEventListener("pointerup", ()=>{
   moving = false;
+  MainContainer.releasePointerCapture(
+    e.pointerId
+  );
 });
 world.addEventListener("pointercancel",()=>{
     moving = false;
