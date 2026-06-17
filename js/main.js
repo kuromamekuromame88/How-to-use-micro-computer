@@ -58,10 +58,10 @@ function feed_out(e){
   e.style.opacity = "1";
   e.style.transition = "opacity 1s ease-in-out";
   e.style.opacity = "0";
-  setTimeout(1000, ()=>{
+  setTimeout(()=>{
     this.style.display = "none";
     console.log(this);
-  });
+  }, 1000);
 }
 
 function title_patch(){
