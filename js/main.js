@@ -9,9 +9,18 @@ function feed_out(e){
 function title_patch(){
   const title = document.getElementsByClassName("title_start")[0];
   title.addEventListener("click", ()=>{
-    console.log("clicked!");
     const title = document.getElementsByClassName("title_start")[0];
     feed_out(title);
   });
 }
+
+
+//トピックを表示する2次元コンテナ
+
+function init_container(topics){
+  if(typeof topics == "object") console.log(typeof topics);
+}
+
+
+
 title_patch();
