@@ -24,6 +24,9 @@ html, body, main, .MainContainer, .world{
 .title_start{
   width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;

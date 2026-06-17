@@ -89,7 +89,7 @@ function title_patch(){
   title.addEventListener("click", ()=>{
     const title = document.getElementsByClassName("title_start")[0];
     feed_out(title);
-    init_container([[0,0,100,100,"<h1>マイコンとは</h1>"]]);
+    init_container([[0,0,200,100,"<h1>マイコンとは</h1>"]]);
   });
 }
 
