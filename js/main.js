@@ -29,6 +29,17 @@ MainContainer.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
+MainContainer.addEventListener("wheel",(e)=>{
+  e.preventDefault();
+  if(e.deltaY>0){
+    cam.zoom *= 0.9;
+  }
+  else{
+    cam.zoom *= 1.1;
+  }
+  updateCamera();
+});
+
 var startX, startY;//タッチ開始点
 var moving = false;
 MainContainer.addEventListener("pointerdown", (e)=>{
@@ -58,12 +69,12 @@ MainContainer.addEventListener("pointermove", (e)=>{
   cam.Y += e.clientY - startY;
   startX = e.clientX;
   startY = e.clientY;
-  updateCamera(cam.X, cam.Y);
+  updateCamera();
 });
 
 //表示関数
-function updateCamera(x,y, zo){
-  world.style.transform =`translate(${x}px,${y}px);scale(${zo});`;
+function updateCamera(){
+  world.style.transform =`translate(${cam.X}px,${cam.Y}px) scale(${cam.zoom})`;
 }
 
 //ここらへんの管理機能は後に修正
@@ -102,9 +113,9 @@ function title_patch(){
     feed_out(title);
     init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
 
-    /*cam.X = window.innerWidth/2;
+    cam.X = window.innerWidth/2;
     cam.Y = window.innerHeight/2;
-    updateCamera();//原点を中央に*/
+    updateCamera();//原点を中央に
   });
 }
 
