@@ -22,13 +22,13 @@ const UITab = document.getElementsByClassName("UITab")[0];
 
 
 //ユーザーの操作管理
-world.addEventListener("keydown", (e)=>{
+MainContainer.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
 var startX, startY;//タッチ開始点
 var moving = false;
-world.addEventListener("pointerdown", (e)=>{
+MainContainer.addEventListener("pointerdown", (e)=>{
   moving = true;
   startX = e.clientX;
   startY = e.clientY;
@@ -36,24 +36,30 @@ world.addEventListener("pointerdown", (e)=>{
     e.pointerId
   );
 });
-world.addEventListener("pointerup", ()=>{
+MainContainer.addEventListener("pointerup", (e)=>{
   moving = false;
   MainContainer.releasePointerCapture(
     e.pointerId
   );
 });
-world.addEventListener("pointercancel",()=>{
+MainContainer.addEventListener("pointercancel",(e)=>{
     moving = false;
   }
 );
-const l = document.getElementById("logp");
-world.addEventListener("pointermove", (e)=>{
+
+MainContainer.addEventListener("pointermove", (e)=>{
   if(!moving) return;
   cameraX += e.clientX - startX;
   cameraY += e.clientY - startY;
-  l.innerText = `mX: ${cameraX}, mY: ${cameraY}`;
+  startX = e.clientX;
+  startY = e.clientY;
+  updateCamera();
 });
 
+//表示関数
+function updateCamera(){
+  world.style.transform =`translate(${cameraX}px,${cameraY}px)`;
+}
 
 //ここらへんの管理機能は後に修正
 //トピックを表示する2次元コンテナ
@@ -63,7 +69,7 @@ function create_topic(x, y, w, h, ht){
   ifr.innerHTML = ht;
 
   world.appendChild(ifr);
-  ifr.setAttribute("style", `width:${w}px;height:${h}px;left:calc(50vw + ${x}px);top:calc(50vh + ${y}px);position:absolute;`);
+  ifr.setAttribute("style", `width:${w}px;height:${h}px;left:${x}px;top:${y}px;position:absolute;`);
 };
 
 function init_container(topics){
