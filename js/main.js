@@ -31,7 +31,7 @@ function create_topic(x, y, w, h, ht){
   //ifr.style = `width:${w};height:${h};left:calc(50vw + ${x}px)important;top:calc(50vh + ${y}px)important;`;
 
   console.log(ifr);
-  cont.appendChild(ifr);
+  MainContainer.appendChild(ifr);
 
   ifr.setAttribute("style", `width:${w}px;height:${h}px;left:calc(50vw + ${x}px);top:calc(50vh + ${y}px);position:absolute;`);
   //ifr.width = w;
