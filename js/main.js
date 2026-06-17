@@ -9,6 +9,7 @@ function feed_out(e){
 function title_patch(){
   const title = document.getElementsByClassName("title_start")[0];
   title.addEventListener("click", ()=>{
+    console.log("clicked!");
     const title = document.getElementsByClassName("title_start")[0];
     feed_out(title);
   });
