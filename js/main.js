@@ -14,11 +14,28 @@ function title_patch(){
   });
 }
 
+//トピックの形式
+/*
+[
+  [x, y, w, h, htmlText],
+  ...
+]
+*/
+
 
 //トピックを表示する2次元コンテナ
+function create_topic(x, y, w, h, ht){
+  const ifr = document.createElement("iframe");
+  
+  ifr.srcdoc = ht;
+};
 
 function init_container(topics){
   if(typeof topics == "object") console.log(typeof topics);
+
+  topics.forEach((e,i)=>{
+    create_topic(e[0], e[1], e[2], e[3], e[4]);
+  });
 }
 
 
