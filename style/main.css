@@ -1,0 +1,19 @@
+
+
+html, body, main{
+  width: 100vw;
+  height: 100vh;
+
+  z-Index: 0;
+}
+
+.title_start{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title_start p{
+  font-weight: bold;
+  font-size: 100px;
+}
