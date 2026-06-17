@@ -32,7 +32,7 @@ html, body, main{
   font-family: sans-serif;
 }
 
-iframe[srcDoc]{
+iframe[srcdoc]{
   position:absolute;
   outline: #ff0000;
 }
