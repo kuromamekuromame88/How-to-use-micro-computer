@@ -43,6 +43,7 @@ MainContainer.addEventListener("wheel",(e)=>{
 var startX, startY;//タッチ開始点
 var moving = false;
 MainContainer.addEventListener("pointerdown", (e)=>{
+  console.log("down");
   moving = true;
   startX = e.clientX;
   startY = e.clientY;
