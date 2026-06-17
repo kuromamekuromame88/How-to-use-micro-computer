@@ -17,8 +17,8 @@ MainContainer.addEventListener("keydown", (e)=>{
 
 let pointerX, pointerY
 MainContainer.addEventListener("pointerdown", (e)=>{
-  pointerX = e.width;
-  pointerY = e.height;
+  pointerX = e.clientX;
+  pointerY = e.clientY;
   console.log(`pX:${pointerX}, pY:${pointerY}`);
 });
 
@@ -58,6 +58,9 @@ function feed_out(e){
   e.style.opacity = "1";
   e.style.transition = "opacity 1s ease-in-out";
   e.style.opacity = "0";
+  setTimeout(1000, ()=>{
+    e.style.display = "none";
+  });
 }
 
 function title_patch(){
