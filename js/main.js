@@ -90,9 +90,9 @@ function create_topic(x, y, w, h, ht){
 };
 
 function init_container(topics){
-  if(typeof topics != "object") return;
+  if(!topics && typeof topics != "object") return;
 
-  topics = JSON.parse(topics);
+  //topics = JSON.parse(topics);
   const topicsname = Object.keys(topics);
   topicsname.forEach((e,i)=>{
     var np = topics[e];
