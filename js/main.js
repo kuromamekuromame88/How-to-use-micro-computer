@@ -7,8 +7,11 @@
 ]
 */
 
-var cameraX = 0;
-var cameraY = 0;
+var cam = {
+  X=0,
+  Y=0,
+  zoom=0,
+};
 
 //メイン画面
 const MainContainer = document.getElementsByClassName("MainContainer")[0];
@@ -49,16 +52,16 @@ MainContainer.addEventListener("pointercancel",(e)=>{
 
 MainContainer.addEventListener("pointermove", (e)=>{
   if(!moving) return;
-  cameraX += e.clientX - startX;
-  cameraY += e.clientY - startY;
+  cam.X += e.clientX - startX;
+  cam.Y += e.clientY - startY;
   startX = e.clientX;
   startY = e.clientY;
-  updateCamera();
+  updateCamera(camX, cam.Y);
 });
 
 //表示関数
-function updateCamera(){
-  world.style.transform =`translate(${cameraX}px,${cameraY}px)`;
+function updateCamera(x,y){
+  world.style.transform =`translate(${x}px,${y}px)`;
 }
 
 //ここらへんの管理機能は後に修正
@@ -95,6 +98,7 @@ function title_patch(){
   title.addEventListener("click", ()=>{
     const title = document.getElementsByClassName("title_start")[0];
     feed_out(title);
+    updateCamera(-window.innerWidth/2, -window.innerHeight/2);
     init_container([[0,0,200,100,"<h1>マイコンとは</h1>"]]);
   });
 }
