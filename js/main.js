@@ -7,6 +7,8 @@
 ]
 */
 
+let cameraX, cameraY;
+
 
 //トピックを表示する2次元コンテナ
 function create_topic(x, y, w, h, ht){
