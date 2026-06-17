@@ -9,6 +9,19 @@
 
 let cameraX, cameraY;
 
+const MainContainer = document.getElementsByClassName("MainContainer")[0];
+
+MainContainer.addEventListener("keydown", (e){
+  console.log(e.key);
+});
+
+let pointerX, pointerY
+MainContainer.addEventListener("pointerdown", (e)=>{
+  pointerX = e.width;
+  pointerY = e.height;
+  console.log(`pX:${pointerX}, pY:${pointerY}`);
+});
+
 
 //トピックを表示する2次元コンテナ
 function create_topic(x, y, w, h, ht){
@@ -18,7 +31,6 @@ function create_topic(x, y, w, h, ht){
   //ifr.style = `width:${w};height:${h};left:calc(50vw + ${x}px)important;top:calc(50vh + ${y}px)important;`;
 
   console.log(ifr);
-  const cont = document.getElementsByClassName("MainContainer")[0];
   cont.appendChild(ifr);
 
   ifr.setAttribute("style", `width:${w}px;height:${h}px;left:calc(50vw + ${x}px);top:calc(50vh + ${y}px);position:absolute;`);
