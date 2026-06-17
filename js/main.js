@@ -59,7 +59,8 @@ function feed_out(e){
   e.style.transition = "opacity 1s ease-in-out";
   e.style.opacity = "0";
   setTimeout(1000, ()=>{
-    e.style.display = "none";
+    this.style.display = "none";
+    console.log(this);
   });
 }
 
