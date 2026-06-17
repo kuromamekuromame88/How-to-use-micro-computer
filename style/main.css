@@ -31,8 +31,3 @@ html, body, main{
   font-size: 50px;
   font-family: sans-serif;
 }
-
-iframe[srcdoc]{
-  position:absolute;
-  outline: #ff0000;
-}

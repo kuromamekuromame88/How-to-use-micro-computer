@@ -1,20 +1,5 @@
 
-//フェードアウト
-function feed_out(e){
-  e.style.opacity = "1";
-  e.style.transition = "opacity 1s ease-in-out";
-  e.style.opacity = "0";
-}
-
-function title_patch(){
-  const title = document.getElementsByClassName("title_start")[0];
-  title.addEventListener("click", ()=>{
-    const title = document.getElementsByClassName("title_start")[0];
-    feed_out(title);
-  });
-}
-
-//トピックの形式
+//トピックデータの形式
 /*
 [
   [x, y, w, h, htmlText],
@@ -25,16 +10,16 @@ function title_patch(){
 
 //トピックを表示する2次元コンテナ
 function create_topic(x, y, w, h, ht){
-  const ifr = document.createElement("iframe");
-  ifr.class="topic";
-  ifr.srcdoc = ht;
+  const ifr = document.createElement("div");
+  ifr.classList.add("topic");
+  ifr.innerHTML = ht;
   //ifr.style = `width:${w};height:${h};left:calc(50vw + ${x}px)important;top:calc(50vh + ${y}px)important;`;
 
   console.log(ifr);
   const cont = document.getElementsByClassName("MainContainer")[0];
   cont.appendChild(ifr);
 
-  ifr.setAttribute("style", `width:${w};height:${h};left:calc(50vw + ${x}px)important;top:calc(50vh + ${y}px)important;position:absolute;`);
+  ifr.setAttribute("style", `width:${w}px;height:${h}px;left:calc(50vw + ${x}px);top:calc(50vh + ${y}px);position:absolute;`);
   //ifr.width = w;
   //ifr.height = h;
   //ifr.left = `calc(50vw + ${x}px)`;
@@ -53,6 +38,22 @@ function init_container(topics){
   });
 }
 
+
+//フェードアウト
+function feed_out(e){
+  e.style.opacity = "1";
+  e.style.transition = "opacity 1s ease-in-out";
+  e.style.opacity = "0";
+}
+
+function title_patch(){
+  const title = document.getElementsByClassName("title_start")[0];
+  title.addEventListener("click", ()=>{
+    const title = document.getElementsByClassName("title_start")[0];
+    feed_out(title);
+    init_container(0,0,100,100,"a");
+  });
+}
 
 
 title_patch();
