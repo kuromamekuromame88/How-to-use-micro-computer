@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-html, body, main{
+html, body, main, .MainContainer{
   width: 100vw;
   height: 100vh;
 

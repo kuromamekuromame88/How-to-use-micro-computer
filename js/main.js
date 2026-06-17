@@ -11,11 +11,13 @@ var cameraX, cameraY;
 
 const MainContainer = document.getElementsByClassName("MainContainer")[0];
 
+
+//ユーザーの操作管理
 MainContainer.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
-var pointerX, pointerY, moveX, moveY;
+var pointerX, pointerY;
 
 MainContainer.addEventListener("pointerdown", (e)=>{
   pointerX = e.clientX;
@@ -24,8 +26,8 @@ MainContainer.addEventListener("pointerdown", (e)=>{
 })
 const l = document.getElementById("logp");
 MainContainer.addEventListener("pointermove", (e)=>{
-  moveX = e.clientX - pointerX;
-  moveY = e.clientY - pointerY;
+  cameraX += e.clientX - pointerX;
+  cameraY += e.clientY - pointerY;
   l.innerText = `mX: ${moveX}, mY: ${moveY}`;
 });
 
