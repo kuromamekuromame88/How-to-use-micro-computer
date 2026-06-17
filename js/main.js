@@ -7,7 +7,8 @@
 ]
 */
 
-var cameraX, cameraY;
+var cameraX = 0;
+var cameraY = 0;
 
 const MainContainer = document.getElementsByClassName("MainContainer")[0];
 
@@ -17,22 +18,30 @@ MainContainer.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
-var pointerX, pointerY;
-
+var startX, startY;//タッチ開始点
+var moving = false;
 MainContainer.addEventListener("pointerdown", (e)=>{
-  pointerX = e.clientX;
-  pointerY = e.clientY;
-  console.log(`pX:${pointerX}, pY:${pointerY}`);
-})
+  moving = true;
+  startX = e.clientX;
+  startY = e.clientY;
+});
+MainContainer.addEventListener("pointerup", ()=>{
+  moving = false;
+});
+MainContainer.addEventListener("pointercancel",()=>{
+    moving = false;
+  }
+);
 const l = document.getElementById("logp");
 MainContainer.addEventListener("pointermove", (e)=>{
-  cameraX += e.clientX - pointerX;
-  cameraY += e.clientY - pointerY;
-  l.innerText = `mX: ${moveX}, mY: ${moveY}`;
+  if(!moving) return;
+  cameraX += e.clientX - startX;
+  cameraY += e.clientY - startY;
+  l.innerText = `mX: ${cameraX}, mY: ${cameraY}`;
 });
 
 
-
+//ここらへんの管理機能は後に修正
 //トピックを表示する2次元コンテナ
 function create_topic(x, y, w, h, ht){
   const ifr = document.createElement("div");
