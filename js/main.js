@@ -28,13 +28,18 @@ function create_topic(x, y, w, h, ht){
   const ifr = document.createElement("iframe");
   ifr.class="topic";
   ifr.srcdoc = ht;
-  ifr.style = `width:${w}!important;height:${h}important;left:calc(50vw + ${x}px)important;top:calc(50vh + ${y}px)important;`;
+  //ifr.style = `width:${w};height:${h};left:calc(50vw + ${x}px)important;top:calc(50vh + ${y}px)important;`;
 
   console.log(ifr);
   const cont = document.getElementsByClassName("MainContainer")[0];
   cont.appendChild(ifr);
-  ifr.width = w;
-  ifr.height = h;
+
+  ifr.setAttribute("style", `width:${w};height:${h};left:calc(50vw + ${x}px)important;top:calc(50vh + ${y}px)important;position:absolute;`);
+  //ifr.width = w;
+  //ifr.height = h;
+  //ifr.left = `calc(50vw + ${x}px)`;
+  //ifr.top = `calc(50vh + ${y}px)`;
+  
   //cont.style=`translate(${x}px, ${y}px);`;
   //scale
   //translate
