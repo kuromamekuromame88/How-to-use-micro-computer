@@ -102,9 +102,9 @@ function title_patch(){
     feed_out(title);
     init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
 
-    cam.X = window.innerWidth/2;
+    /*cam.X = window.innerWidth/2;
     cam.Y = window.innerHeight/2;
-    updateCamera();//原点を中央に
+    updateCamera();//原点を中央に*/
   });
 }
 
