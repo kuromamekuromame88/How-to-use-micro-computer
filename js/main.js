@@ -7,7 +7,7 @@
 ]
 */
 
-let cameraX, cameraY;
+var cameraX, cameraY;
 
 const MainContainer = document.getElementsByClassName("MainContainer")[0];
 
@@ -15,12 +15,20 @@ MainContainer.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
-let pointerX, pointerY
+var pointerX, pointerY, moveX, moveY;
+
 MainContainer.addEventListener("pointerdown", (e)=>{
   pointerX = e.clientX;
   pointerY = e.clientY;
   console.log(`pX:${pointerX}, pY:${pointerY}`);
+})
+const l = document.getElementById("logp");
+MainContainer.addEventListener("pointermove", (e)=>{
+  moveX = e.clientX - pointerX;
+  moveY = e.clientY - pointerY;
+  l.innerText = `mX: ${moveX}, mY: ${moveY}`;
 });
+
 
 
 //トピックを表示する2次元コンテナ
@@ -59,8 +67,7 @@ function feed_out(e){
   e.style.transition = "opacity 1s ease-in-out";
   e.style.opacity = "0";
   setTimeout(()=>{
-    this.style.display = "none";
-    console.log(this);
+    e.style.display = "none";
   }, 1000);
 }
 
