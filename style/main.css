@@ -31,3 +31,8 @@ html, body, main{
   font-size: 50px;
   font-family: sans-serif;
 }
+
+iframe[srcDoc]{
+  position:absolute;
+  outline: #ff0000;
+}
