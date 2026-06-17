@@ -75,7 +75,7 @@ function init_container(topics){
 }
 
 //フェードアウト
-function feed_out(e){
+async function feed_out(e){
   e.style.opacity = "1";
   e.style.transition = "opacity 1s ease-in-out";
   e.style.opacity = "0";
@@ -86,9 +86,9 @@ function feed_out(e){
 
 function title_patch(){
   const title = document.getElementsByClassName("title_start")[0];
-  title.addEventListener("click", ()=>{
+  title.addEventListener("click", async()=>{
     const title = document.getElementsByClassName("title_start")[0];
-    feed_out(title);
+    await feed_out(title);
     init_container([[0,0,200,100,"<h1>マイコンとは</h1>"]]);
   });
 }
