@@ -1,10 +1,10 @@
 
 //トピックデータの形式
 /*
-[
-  [x, y, w, h, htmlText],
+{
+  "topicname": [x, y, w, h, htmlText],
   ...
-]
+}
 */
 
 var cam = {
@@ -92,8 +92,11 @@ function create_topic(x, y, w, h, ht){
 function init_container(topics){
   if(typeof topics != "object") return;
 
-  topics.forEach((e,i)=>{
-    create_topic(e[0], e[1], e[2], e[3], e[4]);
+  topics = JSON.parse(topics);
+  const topicsname = Object.keys(topics);
+  topicsname.forEach((e,i)=>{
+    var np = topics[e];
+    create_topic(np[0], np[1], np[2], np[3], np[4]);
   });
 }
 
