@@ -28,9 +28,12 @@ function create_topic(x, y, w, h, ht){
   const ifr = document.createElement("iframe");
   ifr.class="topic";
   ifr.srcdoc = ht;
-  ifr.style = `width:${w};height:${h};left:${x}px;top:${y}px;`;
+  ifr.style = `width:${w};height:${h};left:calc(50vw + ${x}px);top:calc(50vh + ${y}px);`;
+
   
-  //const cont = document.getElementsByClassName("MainContainer")[0];
+  
+  const cont = document.getElementsByClassName("MainContainer")[0];
+  cont.appendChild(ifr);
   //cont.style=`translate(${x}px, ${y}px);`;
   //scale
   //translate
