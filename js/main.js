@@ -26,8 +26,13 @@ function title_patch(){
 //トピックを表示する2次元コンテナ
 function create_topic(x, y, w, h, ht){
   const ifr = document.createElement("iframe");
-  
+  ifr.class="topic";
   ifr.srcdoc = ht;
+  ifr.style = `width:${w};height:${h};`;
+  const cont = document.getElementsByClassName("MainContainer")[0];
+  cont.style=`translate(${x}px, ${y}px);`;
+  //scale
+  //translate
 };
 
 function init_container(topics){
