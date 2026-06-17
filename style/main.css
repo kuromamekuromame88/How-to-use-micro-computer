@@ -8,6 +8,8 @@ html, body, main{
 }
 
 .title_start{
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,5 +17,5 @@ html, body, main{
 
 .title_start p{
   font-weight: bold;
-  font-size: 100px;
+  font-size: 50px;
 }
