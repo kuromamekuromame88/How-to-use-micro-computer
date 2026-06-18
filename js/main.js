@@ -109,6 +109,11 @@ function feed_out(e){
   }, 1000);
 }
 
+async function a(){
+  const a = await getTopics();
+  console.log(a);
+}
+
 async function getTopics(){
   const r = await fetch("./topics/topics_name.json");
   const res = await r.json();
