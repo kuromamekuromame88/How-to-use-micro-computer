@@ -74,21 +74,76 @@ MainContainer.addEventListener("pointerdown", (e)=>{
     e.pointerId
   );
 });
+
+function removePointer(e){
+  pointers.delete(e.pointerId);
+}
+
 MainContainer.addEventListener("pointerup", (e)=>{
   moving = false;
+  removePointer(e);
   MainContainer.releasePointerCapture(
     e.pointerId
   );
 });
 MainContainer.addEventListener("pointercancel",(e)=>{
   moving = false;
+  removePointer(e);
   MainContainer.releasePointerCapture(
     e.pointerId
   );
 });
 
+
+let pinchDistance = null;
+let dragPointerId = null;
 MainContainer.addEventListener("pointermove", (e)=>{
+  
+  if(!pointers.has(e.pointerId))return;
+  pointers.set(e.pointerId, {
+    x:e.clientX,
+    y:e.clientY
+  });
+
   if(!moving) return;
+
+  if(pointers.size === 1){
+    dragPointerId = e.pointerId;
+    if(pointers.size === 1 && e.pointerId === dragPointerId){
+    cam.X += e.clientX-startX;
+    cam.Y += e.clientY-startY;
+    startX=e.clientX;
+    startY=e.clientY;
+    }
+  }
+
+  //タッチ画面用
+  if(pointers.size == 2){
+    const p = [...pointers.values()];
+    const dx = p[1].x-p[0].x;
+    const dy = p[1].y-p[0].y;
+    const dist = Math.hypot(dx, dy);
+    const before = cam.zoom;
+    
+    if(pinchDistance!== null){
+      cam.zoom *= dist / pinchDistance;
+
+      cam.zoom = Math.max(0.5, Math.min(cam.zoom, 3));
+    }
+    pinchDistance=dist;
+
+    
+    const cx = (p[0].x+p[1].x)/2;
+    const cy = (p[0].y+p[1].y)/2;
+    const ratio = cam.zoom/before;
+    cam.X = cx - (cx-cam.X)*ratio;
+    cam.Y = cy - (cy-cam.Y)*ratio;
+
+    updateCamera();
+    return;
+  }
+
+  //共通画面移動処理
   cam.X += e.clientX - startX;
   cam.Y += e.clientY - startY;
   startX = e.clientX;
