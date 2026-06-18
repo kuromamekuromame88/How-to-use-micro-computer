@@ -110,9 +110,17 @@ function feed_out(e){
 }
 
 async function getTopics(){
-  const r = await fetch("../topics/topics_name.json");
+  const r = await fetch("./topics/topics_name.json");
   const res = await r.json();
-  return res;
+  if(typeof res != "object") return;
+  let count;
+  const topics = [];
+  while(count<res.topics.length){
+    const tr = await fetch(`./topics/topicsData/${res.topics[count]}.topic`);
+    topics.push(tr);
+    count++;
+  }
+  return topics;
 }
 
 function title_patch(){
