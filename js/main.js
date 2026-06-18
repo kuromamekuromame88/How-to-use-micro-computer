@@ -119,13 +119,13 @@ async function getTopics(){
   const res = await r.json();
   if((typeof res) != "object") return;
   let count=0;
-  let topics = [];
+  let topics = {};
   while(count<res["topics"].length){
     const tr = await fetch(`./topics/topicsData/${res.topics[count]}.topic`);
     const td = await tr.json();
     if(!td && typeof td != "object") return;
     console.log("a");
-    topics.push({[res.topics[count]]: td});
+    topics[res.topics[count]] = td["data"];
     count++;
   }
   return topics;
@@ -133,9 +133,14 @@ async function getTopics(){
 
 function title_patch(){
   const title = document.getElementsByClassName("title_start")[0];
-  title.addEventListener("click", ()=>{
+  title.addEventListener("click", async()=>{
     const title = document.getElementsByClassName("title_start")[0];
     feed_out(title);
+
+    const topics = await getTopics();
+    const parsedData = [];
+    
+    
     init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
 
     cam.X = window.innerWidth/2;
