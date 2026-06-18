@@ -121,7 +121,7 @@ async function getTopics(){
   let count=0;
   let topics = {};
   while(count<res["topics"].length){
-    const tr = await fetch(`./topics/topicsData/${res.topics[count]}.topic`);
+    const tr = await fetch(`./topics/topicsData/${res.topics[count]}.topic`);//実態はJSON文字列
     const td = await tr.json();
     if(!td && typeof td != "object") return;
     topics[res.topics[count]] = td["data"];
@@ -142,10 +142,8 @@ function title_patch(){
     tkey.forEach((e,i)=>{
       parsedData.push(topics[e]);
     });
-    parsedData.forEach((e,i)=>{
-      console.log(e);
-      init_container(e);
-    });
+    
+    init_container(parsedData);
     //init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
 
     cam.X = window.innerWidth/2;
