@@ -124,7 +124,6 @@ async function getTopics(){
     const tr = await fetch(`./topics/topicsData/${res.topics[count]}.topic`);
     const td = await tr.json();
     if(!td && typeof td != "object") return;
-    console.log("a");
     topics[res.topics[count]] = td["data"];
     count++;
   }
@@ -139,9 +138,15 @@ function title_patch(){
 
     const topics = await getTopics();
     const parsedData = [];
+    const tkey = Object.keys(topics);
+    tkey.forEach((e,i)=>{
+      parsedData.push(topics[e]);
+    });
     
-    
-    init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
+    parsedData.forEach((e,i)=>{
+      init_container(e);
+    });
+    //init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
 
     cam.X = window.innerWidth/2;
     cam.Y = window.innerHeight/2;
