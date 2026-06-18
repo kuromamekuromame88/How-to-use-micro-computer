@@ -43,7 +43,6 @@ MainContainer.addEventListener("wheel",(e)=>{
 var startX, startY;//タッチ開始点
 var moving = false;
 MainContainer.addEventListener("pointerdown", (e)=>{
-  console.log("down");
   moving = true;
   startX = e.clientX;
   startY = e.clientY;
@@ -108,6 +107,12 @@ function feed_out(e){
   setTimeout(()=>{
     e.style.display = "none";//イベントを拾わないように完全に非表示
   }, 1000);
+}
+
+async function getTopics(){
+  const r = await fetch("../topics/topics_name.json");
+  const res = await r.json();
+  return res;
 }
 
 function title_patch(){
