@@ -16,13 +16,20 @@ html, body, main, .MainContainer, .world{
   z-Index: 0;
 }
 
-.MainContainer{
+.world{
   background-color: #dedede;
+}
+
+.topic{
+  background-color: #fff;
+  border-radius: 10%;
 }
 
 .MainContainer{
   width: max-content;
   height: max-content;
+  background-color: #ffffff;
+  overflow: hidden;
 }
 
 .title_start{
