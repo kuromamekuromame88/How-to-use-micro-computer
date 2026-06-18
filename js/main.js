@@ -144,13 +144,12 @@ async function getTopics(){
 function title_patch(){
   title.addEventListener("click", async()=>{
     const title = document.getElementsByClassName("title_start")[0];
+    grid.style.display = "block";
     feed_out(title);
 
     const topics = await getTopics();
     
-    
     init_container(topics);
-    //init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
 
     cam.X = window.innerWidth/2;
     cam.Y = window.innerHeight/2;
@@ -160,3 +159,4 @@ function title_patch(){
 
 
 title_patch();
+grid.style.display = "none";
