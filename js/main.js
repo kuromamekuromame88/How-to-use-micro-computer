@@ -115,8 +115,11 @@ function feed_out(e){
   e.style.opacity = "1";
   e.style.transition = "opacity 1s ease-in-out";
   e.style.opacity = "0";
+  
   setTimeout(()=>{
     e.style.display = "none";//イベントを拾わないように完全に非表示
+    MainContainer.style.display = "block";
+
   }, 1000);
 }
 
@@ -144,9 +147,9 @@ async function getTopics(){
 function title_patch(){
   title.addEventListener("click", async()=>{
     const title = document.getElementsByClassName("title_start")[0];
-    MainContainer.style.display = "block";
+    
     feed_out(title);
-
+    
     const topics = await getTopics();
     
     init_container(topics);
