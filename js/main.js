@@ -142,7 +142,7 @@ function title_patch(){
     tkey.forEach((e,i)=>{
       parsedData.push(topics[e]);
     });
-    
+    console.log(parsedData);
     parsedData.forEach((e,i)=>{
       init_container(e);
     });
