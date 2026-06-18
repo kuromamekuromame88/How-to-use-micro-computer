@@ -31,17 +31,19 @@ const UITab = document.getElementsByClassName("UITab")[0];
 
 
 //ユーザーの操作管理
-MainContainer.addEventListener("keydown", (e)=>{
+document.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
-MainContainer.addEventListener("wheel",(e)=>{
+document.addEventListener("wheel",(e)=>{
   e.preventDefault();
   if(e.deltaY>0){
-    if(cam.zoom>0.5) cam.zoom *= 0.9;
+    cam.zoom *= 0.9;
+    cam.zoom = Math.max(0.5, cam.zoom);
   }
   else{
-    if(cam.zoom<1.5) cam.zoom *= 1.1;
+    cam.zoom *= 1.1;
+    cam.zoom = Math.min(1.5, cam.zoom);
   }
   updateCamera();
 });
@@ -98,7 +100,7 @@ function create_topic(x, y, w, h, ht){
 };
 
 function init_container(topics){
-  if(!topics && typeof topics != "object") return;
+  if(topics === null || typeof topics != "object") return;
 
   //topics = JSON.parse(topics);
   const topicsname = Object.keys(topics);
