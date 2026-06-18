@@ -144,7 +144,7 @@ async function getTopics(){
 function title_patch(){
   title.addEventListener("click", async()=>{
     const title = document.getElementsByClassName("title_start")[0];
-    grid.style.display = "block";
+    MainContainer.style.display = "block";
     feed_out(title);
 
     const topics = await getTopics();
@@ -159,4 +159,4 @@ function title_patch(){
 
 
 title_patch();
-grid.style.display = "none";
+MainContainer.style.display = "none";
