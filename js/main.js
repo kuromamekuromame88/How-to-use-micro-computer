@@ -32,10 +32,10 @@ MainContainer.addEventListener("keydown", (e)=>{
 MainContainer.addEventListener("wheel",(e)=>{
   e.preventDefault();
   if(e.deltaY>0){
-    cam.zoom *= 0.9;
+    if(cam.zoom>0.5) cam.zoom *= 0.9;
   }
   else{
-    cam.zoom *= 1.1;
+    if(cam.zoom<2) cam.zoom *= 1.1;
   }
   updateCamera();
 });
