@@ -1,1 +1,9 @@
-{"data":[0, 0, 1000, 10, "<h1>Vscodeのインストール</h1>"]}
+{
+    "data": [
+        0,
+        0,
+        1000,
+        10,
+        "<h1>Vscodeのインストール</h1><br><textarea>VScodeを、公式サイトもしくはMicrosoftストアからインストールします。</textarea>"
+    ]
+}
