@@ -115,7 +115,7 @@ async function getTopics(){
   if(typeof res != "object") return;
   let count;
   let topics = [];
-  while(count<res.topics.length){
+  while(count<res["topics"].length){
     const tr = await fetch(`./topics/topicsData/${res.topics[count]}.topic`);
     const td = await tr.json();
     if(!td && typeof td != "object") return;
