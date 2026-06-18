@@ -16,8 +16,8 @@ html, body, main, .MainContainer{
 }
 
 .world{
-  width: 100vw;
-  height: 100vh;
+  width: calc(infinity * 100vw);
+  height: calc(infinity * 100vh);
 
   background-color: #dedede;
   
@@ -27,7 +27,6 @@ html, body, main, .MainContainer{
 
 .topic{
   background-color: #fff;
-  border-radius: 10%;
   min-width: max-content;
   min-height: max-content;
 }
