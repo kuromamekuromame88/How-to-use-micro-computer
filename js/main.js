@@ -142,8 +142,8 @@ function title_patch(){
     tkey.forEach((e,i)=>{
       parsedData.push(topics[e]);
     });
-    console.log(parsedData);
     parsedData.forEach((e,i)=>{
+      console.log(e);
       init_container(e);
     });
     //init_container([[0,0,200,100,"<pre>マイコンとは</pre>"]]);
