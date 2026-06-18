@@ -16,6 +16,9 @@ var cam = {
 //メイン画面
 const MainContainer = document.getElementsByClassName("MainContainer")[0];
 
+//グリッド
+const grid = document.getElementsByClassName("grid")[0];
+
 //トピック表示
 const world =  document.getElementsByClassName("world")[0];
 
@@ -75,6 +78,9 @@ MainContainer.addEventListener("pointermove", (e)=>{
 //表示関数
 function updateCamera(){
   world.style.transform =`translate(${cam.X}px,${cam.Y}px) scale(${cam.zoom})`;
+
+  grid.style.backgroundPosition = `${cam.X}px ${cam.Y}px`;
+  grid.style.backgroundSize = `${32*cam.zoom}px ${32*cam.zoom}px`;
 }
 
 //ここらへんの管理機能は後に修正
