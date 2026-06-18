@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-html, body, main, .MainContainer, .world{
+html, body, main, .MainContainer{
   touch-action:none;
   user-select: none;
   overflow: hidden;
@@ -13,10 +13,12 @@ html, body, main, .MainContainer, .world{
   width: 100vw;
   height: 100vh;
 
-  z-Index: 0;
 }
 
 .world{
+  width: 100vw;
+  height: 100vh;
+
   background-color: #dedede;
   
   background-image: linear-gradient(0deg, transparent 31px, #333 32px), linear-gradient(90deg,  transparent 31px, #333 32px);
@@ -26,6 +28,8 @@ html, body, main, .MainContainer, .world{
 .topic{
   background-color: #fff;
   border-radius: 10%;
+  min-width: max-content;
+  min-height: max-content;
 }
 
 .MainContainer{
