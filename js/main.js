@@ -117,7 +117,7 @@ async function getTopics(){
   const topics = [];
   while(count<res.topics.length){
     const tr = await fetch(`./topics/topicsData/${res.topics[count]}.topic`);
-    topics.push(tr);
+    topics.push({[res.topics[count]]: tr});
     count++;
   }
   return topics;
