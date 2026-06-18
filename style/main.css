@@ -17,6 +17,10 @@ html, body, main, .MainContainer, .world{
 }
 
 .MainContainer{
+  background-color: #dedede;
+}
+
+.MainContainer{
   width: max-content;
   height: max-content;
 }
