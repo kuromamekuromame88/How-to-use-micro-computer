@@ -13,6 +13,9 @@ var cam = {
   zoom:1,
 };
 
+//タイトル
+const title = document.getElementsByClassName("title_start")[0];
+
 //メイン画面
 const MainContainer = document.getElementsByClassName("MainContainer")[0];
 
@@ -137,7 +140,6 @@ async function getTopics(){
 }
 
 function title_patch(){
-  const title = document.getElementsByClassName("title_start")[0];
   title.addEventListener("click", async()=>{
     const title = document.getElementsByClassName("title_start")[0];
     feed_out(title);
