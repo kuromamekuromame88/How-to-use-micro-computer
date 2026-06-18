@@ -35,22 +35,38 @@ document.addEventListener("keydown", (e)=>{
   console.log(e.key);
 });
 
+
+//マウスでのズーム操作管理
 document.addEventListener("wheel",(e)=>{
   e.preventDefault();
+
+  const mx = e.clientX;
+  const my = e.clientY;
+  const before = cam.zoom;
+
   if(e.deltaY>0){
-    cam.zoom *= 0.9;
-    cam.zoom = Math.max(0.5, cam.zoom);
+    cam.zoom*=0.9;
+  }else{
+    cam.zoom*=1.1;
   }
-  else{
-    cam.zoom *= 1.1;
-    cam.zoom = Math.min(1.5, cam.zoom);
-  }
+  cam.zoom = Math.max(0.5,Math.min(cam.zoom,3));
+
+  const ratio = cam.zoom/before;
+
+  cam.X = mx - (mx-cam.X)*ratio;
+  cam.Y = my - (my-cam.Y)*ratio;
+
   updateCamera();
 });
+//タッチパネルでのズーム管理
+const pointers = new Map();
+
 
 var startX, startY;//タッチ開始点
 var moving = false;
 MainContainer.addEventListener("pointerdown", (e)=>{
+  pointers.set(e.pointerId,{x:e.clientX, y:e.clientY});
+
   moving = true;
   startX = e.clientX;
   startY = e.clientY;
