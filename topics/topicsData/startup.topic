@@ -4,11 +4,8 @@
         0,
         1000,
         10,
-        `
+        "
           <h1>制御版で使用するもの</h1>
-          <pre>
-            マイコン（ESP32, STM32）、VScodeなどのエディタ、PlatformIO
-          </pre>
-        `
+          <pre>マイコン（ESP32, STM32）、VScodeなどのエディタ、PlatformIO</pre>"
     ]
 }

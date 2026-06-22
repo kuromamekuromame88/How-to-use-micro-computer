@@ -4,7 +4,7 @@
         200,
         500,
         500,
-        `
+        "
           <h1>制御班で使用するもの</h1>
           <pre>
             マイコン（ESP32, STM32）、VScodeなどのエディタ、PlatformIO
@@ -23,6 +23,6 @@
             <p style="font-weight: bold;"><a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads" target="_blank">このリンクをクリック</a></p>
             CP210x Universal Windows Driverというものをダウンロードしてください。
           </pre>
-        ` 
+        "
     ]
 }
