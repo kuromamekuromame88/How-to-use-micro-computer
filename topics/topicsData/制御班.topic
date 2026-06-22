@@ -1,0 +1,28 @@
+{
+    "data": [
+        0,
+        200,
+        500,
+        500,
+        `
+          <h1>制御班で使用するもの</h1>
+          <pre>
+            マイコン（ESP32, STM32）、VScodeなどのエディタ、PlatformIO
+          </pre>
+          <pre>
+            制御班では、ESP32やSTM32などのマイコンで、センサーやコントローラーからの入力を受け取り、モーターに信号を送ったりするプログラムを作ります。
+
+            (1)VScodeをPCに入れる
+            マイコンの開発には、VScode(Visual Studio code)が必要です。
+            Microsoftストアか公式サイトからダウンロードしましょう。
+
+            (2)シリアルチップのドライバをインストール
+            ESP32は、USBのインターフェースがなく、UART変換チップを使用して、USBの通信をできるようにしています。
+            部室にあるESP32には、CP210x系のUART変換チップを搭載したボードがあります。
+            windowsには、標準でこのチップ用のドライバーが入っていないことが多いので、以下のリンクからダウンロードしてください。
+            <p style="font-weight: bold;"><a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads" target="_blank">このリンクをクリック</a></p>
+            CP210x Universal Windows Driverというものをダウンロードしてください。
+          </pre>
+        ` 
+    ]
+}

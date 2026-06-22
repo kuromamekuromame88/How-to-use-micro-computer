@@ -4,6 +4,11 @@
         0,
         1000,
         10,
-        "<h1>Vscodeのインストール</h1><br><textarea>VScodeを、公式サイトもしくはMicrosoftストアからインストールします。</textarea>"
+        `
+          <h1>制御版で使用するもの</h1>
+          <pre>
+            マイコン（ESP32, STM32）、VScodeなどのエディタ、PlatformIO
+          </pre>
+        `
     ]
 }
