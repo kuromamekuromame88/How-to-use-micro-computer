@@ -43,7 +43,7 @@ html, body, main, .MainContainer{
   min-width: max-content;
   min-height: max-content;
 
-  border-radius: 10%;
+  border-radius: 20px;
 }
 
 .MainContainer{
