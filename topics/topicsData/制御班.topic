@@ -4,6 +4,6 @@
         200,
         500,
         500,
-        '<h1>制御班で使用するもの</h1><pre>マイコン（ESP32, STM32）、VScodeなどのエディタ、PlatformIO</pre><pre>制御班では、ESP32やSTM32などのマイコンで、センサーやコントローラーからの入力を受け取り、モーターに信号を送ったりするプログラムを作ります。<br>(1)VScodeをPCに入れる<br>マイコンの開発には、VScode(Visual Studio code)が必要です。<br>Microsoftストアか公式サイトからダウンロードしましょう。<br><br>(2)シリアルチップのドライバをインストール<br>ESP32は、USBのインターフェースがなく、UART変換チップを使用して、USBの通信をできるようにしています。<br>部室にあるESP32には、CP210x系のUART変換チップを搭載したボードがあります。<br>windowsには、標準でこのチップ用のドライバーが入っていないことが多いので、以下のリンクからダウンロードしてください。<br><p style="font-weight: bold;"><a href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads" target="_blank">このリンクをクリック</a></p><br>CP210x Universal Windows Driverというものをダウンロードしてください。</pre>'
+        "<h1>制御班で使用するもの</h1><pre>マイコン（ESP32, STM32）、VScodeなどのエディタ、PlatformIO</pre><pre>制御班では、ESP32やSTM32などのマイコンで、センサーやコントローラーからの入力を受け取り、モーターに信号を送ったりするプログラムを作ります。<br>(1)VScodeをPCに入れる<br>マイコンの開発には、VScode(Visual Studio code)が必要です。<br>Microsoftストアか公式サイトからダウンロードしましょう。<br><br>(2)シリアルチップのドライバをインストール<br>ESP32は、USBのインターフェースがなく、UART変換チップを使用して、USBの通信をできるようにしています。<br>部室にあるESP32には、CP210x系のUART変換チップを搭載したボードがあります。<br>windowsには、標準でこのチップ用のドライバーが入っていないことが多いので、以下のリンクからダウンロードしてください。<br><p style='font-weight: bold;'><a href='https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads' target='_blank'>このリンクをクリック</a></p><br>CP210x Universal Windows Driverというものをダウンロードしてください。</pre>"
     ]
 }
