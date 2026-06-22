@@ -42,6 +42,8 @@ html, body, main, .MainContainer{
   background-color: #fff;
   min-width: max-content;
   min-height: max-content;
+
+  border-radius: 10%;
 }
 
 .MainContainer{
