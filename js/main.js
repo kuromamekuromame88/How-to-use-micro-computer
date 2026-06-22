@@ -212,7 +212,7 @@ function feed_out(e){
 //====================
 // JSON読み込み
 //====================
-const topics = new Map();
+let topics = [];
 
 async function getTopics(){
   const r = await fetch("./topics/topics_name.json");
@@ -224,12 +224,10 @@ async function getTopics(){
   console.log(res.topics);
 
   for(const tdata of res.topics){
-
-    console.log(Object.keys(tdata));
     const tr=await fetch(`./topics/topicsData/${Object.keys(tdata)}.html`);
-    topics.set(Object.keys(tdata), await tr.text());
-    console.log(tr);
+    topics.push({[Object.keys(tdata)]: await tr.text()});
   }
+  
   //return topics;
 }
 
