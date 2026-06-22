@@ -224,7 +224,7 @@ async function getTopics(){
 
   for(const tdata of res.topics){
     const tr=await fetch(`./topics/topicsData/${Object.keys(tdata)}.html`);
-    topics(Object.keys(tdata), tr);
+    topics.set(Object.keys(tdata), tr);
     console.log(tr);
   }
   //return topics;
