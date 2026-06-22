@@ -188,9 +188,9 @@ function create_topic(x, y, w, h, ht){
 function init_container(topics){
   if(topics===null || typeof topics!=="object") return;
 
-  for(const key of Object.keys(topics)){
-    const t = topics[key];
-    create_topic(t[0], t[1], t[2], t[3], t[4]);
+  for(const tdata of topics){
+    const d = tdata[Object.keys(tdata)][1];
+    create_topic(d[0], d[1], d[2], d[3], tdata[Object.keys(tdata)][0]);
   }
 }
 
@@ -226,9 +226,7 @@ async function getTopics(){
     topics.push({[Object.keys(tdata)]: [await tr.text(), tdata[Object.keys(tdata)]]});
   }
 
-  
-
-  //return topics;
+  return topics;
 }
 
 
