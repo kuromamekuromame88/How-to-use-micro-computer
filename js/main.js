@@ -220,14 +220,14 @@ async function getTopics(){
   const res=await r.json();
 
   if(typeof res!=="object") return {};
-  
-  console.log(res.topics);
 
   for(const tdata of res.topics){
     const tr=await fetch(`./topics/topicsData/${Object.keys(tdata)}.html`);
-    topics.push({[Object.keys(tdata)]: await tr.text()});
+    topics.push({[Object.keys(tdata)]: [await tr.text(), tdata[Object.keys(tdata)]]});
   }
+
   
+
   //return topics;
 }
 
