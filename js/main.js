@@ -242,8 +242,8 @@ function title_patch(){
 
       init_container(topics);
 
-      cam.X=window.innerWidth/2;
-      cam.Y=window.innerHeight/2;
+      cam.X=-window.innerWidth/2;
+      cam.Y=-window.innerHeight/2;
 
       updateCamera();
     }
