@@ -82,16 +82,16 @@ function updateCamera(){
 document.addEventListener("keydown",(e)=>{
   console.log(e.key);
   switch(e.key){
-    case "Up":
+    case "ArrowUp":
       cam.Y+=100;
       break; 
-    case "Down":
+    case "ArrowDown":
       cam.Y-=100;
       break;
-    case "Left":
+    case "ArrowLeft":
       cam.x+=100;
       break;
-    case "Right":
+    case "ArrowRight":
       cam.x-=100;
       break;
   } 
