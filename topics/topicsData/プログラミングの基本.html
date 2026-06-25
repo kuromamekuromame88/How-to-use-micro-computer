@@ -2,9 +2,42 @@
   Platformioでのマイコン開発の基本
 </h1>
 
-<h2>プロジェクトの作成管理</h2>
+<h2>
+  プロジェクトの作成・管理
+</h2>
 
 <pre>
-  1: Vscodeを開き、PLatformioのアイコンを押して、Platformio Coreの初期化が完了するまで待ちます。
-  2: 
+  1: Vscodeを開き、PLatformioのアイコンを押して、Platformio Coreの初期化が完了するまで待つ。
+  2: QUICK Accessの下にある、Openをクリックして、Platformioのホーム画面を開く。
+  3: ページが開いたら、右上にあるQuick Accessの下の、+ New Projectを押す。
+  4: プロジェクト名と使いたいボードのボード名を入力して、Finishを押す。（初回作成時は多少時間がかかります）
+    ボード名
+    無印ESP32-> Espressif ESP32 Dev Module
+    Nucleo STM32 F303K8 -> ST Nucleo F303K8
+  5: 完了
 </pre>
+
+<h2>
+  プログラミングの行い方
+</h2>
+
+<pre>
+  1: VScodeの左のツールバーから、一番上のファイルのようなロゴを押す。
+  2: 今開いているプロジェクトのフォルダやファイルの構成がわかる。
+  3: srcフォルダ内のmain.cppを開く。ここにプログラムを記入する。
+  4: 基本のプログラムを入力する。この文に手を加えて、拡張していく。（これは暗記しようね）
+    基本のプロブラム
+    <textarea>
+      #include <Arduino.h>
+
+      void setup(){
+
+      }
+
+      void loop(){
+
+      }
+    </textarea>
+  5: 完了
+</pre>
+
