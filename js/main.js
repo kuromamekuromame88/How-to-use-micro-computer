@@ -93,7 +93,9 @@ document.addEventListener("keydown",(e)=>{
       break;
     case "Right":
       cam.x-=100;
+      break;
   } 
+  updateCamera();
 });
 
 
