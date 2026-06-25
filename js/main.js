@@ -81,6 +81,19 @@ function updateCamera(){
 
 document.addEventListener("keydown",(e)=>{
   console.log(e.key);
+  switch(e.key){
+    case "Up":
+      cam.Y+=100;
+      break; 
+    case "Down":
+      cam.Y-=100;
+      break;
+    case "Left":
+      cam.x+=100;
+      break;
+    case "Right":
+      cam.x-=100;
+  } 
 });
 
 
