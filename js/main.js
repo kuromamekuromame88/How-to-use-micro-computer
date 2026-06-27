@@ -105,7 +105,7 @@ document.addEventListener("keydown",(e)=>{
 
 document.addEventListener("wheel",(e)=>{
   e.preventDefault();
-  setZoom(e.clientX, e.clientY, e.deltaY>0?0.9:1.1);
+  setZoom(e.clientX-window.innerWidth/2, e.clientY-innerHeight/2, e.deltaY>0?0.9:1.1);
   updateCamera();
 }, {passive:false});
 
